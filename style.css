@@ -1,0 +1,106 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 20px;
+}
+
+.contenedor {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1 {
+  color: #1e293b;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.subtitulo {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #afd0f0;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.btn-agregar {
+  background: #1e293b;
+  color: white;
+}
+
+.btn-entrada {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-salida {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-guardar {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-eliminar {
+  background: #334155;
+  color: white;
+}
+
+.producto {
+  background: white;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.producto h3 {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.stock {
+  color: #475569;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .producto {
+    padding: 15px;
+  }
+}
