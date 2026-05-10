@@ -186,7 +186,27 @@ async function eliminarProducto(index) {
     alert("Producto eliminado");
   }
 }
+function generarPDF() {
+  const { jsPDF } = window.jspdf;
 
+  const doc = new jsPDF();
+
+  doc.setFontSize(20);
+
+  doc.text("Inventario Zea", 20, 20);
+
+  let y = 40;
+
+  productos.forEach((producto) => {
+    doc.setFontSize(12);
+
+    doc.text(`${producto.nombre} - Cantidad: ${producto.cantidad}`, 20, y);
+
+    y += 10;
+  });
+
+  doc.save("inventario-zea.pdf");
+}
 cargarProductos();
 
 window.agregarProducto = agregarProducto;
@@ -194,3 +214,4 @@ window.entradaProducto = entradaProducto;
 window.salidaProducto = salidaProducto;
 window.actualizarNombre = actualizarNombre;
 window.eliminarProducto = eliminarProducto;
+window.generarPDF = generarPDF;
