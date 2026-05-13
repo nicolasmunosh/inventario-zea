@@ -23,6 +23,12 @@ async function cargarProductos() {
     });
   });
 
+  productos.sort((a, b) =>
+    a.nombre.localeCompare(b.nombre, "es", {
+      sensitivity: "base",
+    }),
+  );
+
   mostrarProductos();
 }
 
@@ -57,7 +63,11 @@ function mostrarProductos() {
   productos
     .filter((producto) => producto.nombre.toLowerCase().includes(textoBuscador))
     .forEach((producto, index) => {
-      lista.innerHTML += `
+      lista.insertAdjacentHTML(
+        "beforeend",
+        `
+  
+  
     
 <div class="producto">
 
@@ -99,7 +109,8 @@ function mostrarProductos() {
 
 </div>
 
-      `;
+      `,
+      );
     });
 }
 
@@ -120,7 +131,9 @@ async function entradaProducto(index) {
       cantidad: nuevaCantidad,
     });
 
-    cargarProductos();
+    productos[index].cantidad = nuevaCantidad;
+
+    mostrarProductos();
 
     document.getElementById(`entrada-${index}`).value = "";
   }
@@ -148,7 +161,9 @@ async function salidaProducto(index) {
       cantidad: nuevaCantidad,
     });
 
-    cargarProductos();
+    productos[index].cantidad = nuevaCantidad;
+
+    mostrarProductos();
 
     document.getElementById(`salida-${index}`).value = "";
   }
@@ -169,7 +184,9 @@ async function actualizarNombre(index) {
       nombre: nuevoNombre,
     });
 
-    cargarProductos();
+    productos[index].nombre = nuevoNombre;
+
+    mostrarProductos();
 
     alert("Nombre actualizado");
   }
@@ -215,3 +232,4 @@ window.salidaProducto = salidaProducto;
 window.actualizarNombre = actualizarNombre;
 window.eliminarProducto = eliminarProducto;
 window.generarPDF = generarPDF;
+window.mostrarProductos = mostrarProductos;

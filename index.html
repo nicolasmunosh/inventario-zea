@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inventario</title>
-    <p class="subtitulo">Control de materiales y stock</p>
-    <input
-      type="text"
-      id="buscador"
-      placeholder="Buscar producto..."
-      oninput="mostrarProductos()"
-    />
+
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="contenedor">
+      <p class="subtitulo">Control de materiales y stock</p>
+
+      <input
+        type="text"
+        id="buscador"
+        placeholder="Buscar producto..."
+        oninput="mostrarProductos()"
+      />
+
       <h1>Inventario</h1>
 
       <input
@@ -24,10 +28,13 @@
       />
 
       <input type="number" id="cantidadProducto" placeholder="Cantidad" />
+
       <button class="btn-agregar" onclick="agregarProducto()">
         Agregar Producto
       </button>
+
       <button class="btn-pdf" onclick="generarPDF()">Descargar PDF</button>
+
       <div id="listaProductos"></div>
     </div>
 
