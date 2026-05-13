@@ -60,19 +60,21 @@ function mostrarProductos() {
 
   let textoBuscador = document.getElementById("buscador").value.toLowerCase();
 
+  productos;
   productos
-    .filter((producto) =>
-      producto.nombre
+    .filter((producto) => {
+      const nombre = producto.nombre
         .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .includes(
-          textoBuscador
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, ""),
-        ),
-    )
+        .replace(/[\u0300-\u036f]/g, "");
+
+      const busqueda = textoBuscador
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+      return nombre.includes(busqueda);
+    })
     .forEach((producto, index) => {
       lista.insertAdjacentHTML(
         "beforeend",
