@@ -61,7 +61,18 @@ function mostrarProductos() {
   let textoBuscador = document.getElementById("buscador").value.toLowerCase();
 
   productos
-    .filter((producto) => producto.nombre.toLowerCase().includes(textoBuscador))
+    .filter((producto) =>
+      producto.nombre
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(
+          textoBuscador
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, ""),
+        ),
+    )
     .forEach((producto, index) => {
       lista.insertAdjacentHTML(
         "beforeend",
